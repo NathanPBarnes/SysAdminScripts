@@ -8,4 +8,4 @@ apt-get clean -y
 
 rm -rf ~/.cache/thumbnails
 
-
+apt-get autoremove -y 
