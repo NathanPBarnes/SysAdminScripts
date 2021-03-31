@@ -6,6 +6,8 @@ packages=(
 	'nano'
 	'wget'
 	'net-tools'
+	'lynis'
+	'chkrootkit'
 )
 
 # loop through the list of packages and show if they are installed
@@ -32,22 +34,25 @@ do
 	done
 done
 
-# loop through scripts in the scripts folder and change the permissions to executable
+# loop through scripts in the system and change the permissions to only read 
+# in order to prevent malicious execution or to troubleshoot 
 
-for script in $(ls ~/scripts);
+for script in $(ls /);
 do
-	if [ ! -x ~/scripts/$script ]
+	if [ ! -x /$script ]
 	then
-		chmod +x ~/scripts/$script
+		chmod 444 /$script
 	fi
 done
 
 # loop through a group of files and create a hash for each file.
-# we assume files for hashing/ exists and contains at least one file 
+# we assume files_for_hashing exists and contains at least one file 
+# simply move desired files to be hash to file_for_hashing or customize
+# this code accordingly 
 
 for file in $(ls ~/Documents/files_for_hashing/);
 do
 	sha256sum $file
 done
 
-## when running this I get a "not found" error
+
