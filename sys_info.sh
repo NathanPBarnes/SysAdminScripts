@@ -5,12 +5,12 @@ if [ $UID -eq 0 ]; then
 	exit
 fi 
 
-output=$HOME/research/sys_info.txt
+output=$HOME/SysStatus/sys_info.txt
 ip=$(ip addr | grep inet | tail -2 | head -1)
 execs=$(sudo find /home -type f -perm 777 2>/dev/null)
 
-if [ ! -d $HOME/research \]; then
-	mkdir $HOME/research
+if [ ! -d $HOME/SysStatus \]; then
+	mkdir $HOME/SysStatus
 fi
 
 if [ -f $output ]; then
@@ -19,12 +19,12 @@ fi
 
 echo "A Quick System Audit Script" >> $output 
 
-mkdir ~/research 2> /dev/null
-echo "A Quick System Audit Script" >  ~/research/sys_info.txt
-date >> ~/research/sys_info.txt
-echo "" >> ~/research/sys_info.txt
-echo "Machine Type Info:" >> ~/research/sys_info.txt
-echo $MACHTYPE >> ~/research/sys_info.txt
+mkdir ~/SysStatus 2> /dev/null
+echo "A Quick System Audit Script" >  ~/SysStatus/sys_info.txt
+date >> ~/SysStatus/sys_info.txt
+echo "" >> ~/SysStatus/sys_info.txt
+echo "Machine Type Info:" >> ~/SysStatus/sys_info.txt
+echo $MACHTYPE >> ~/SysStatus/sys_info.txt
 echo -e "Uname info: $(uname -a) \n" >> $output
 echo -e "IP Info: $ip \n" >> $output
 echo "Hostname: $(hostname -s) " >> $output
