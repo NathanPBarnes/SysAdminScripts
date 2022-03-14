@@ -1,0 +1,1 @@
+A collection of various PowerShell based scripts written from a perspective to aid in various tasks ranging from day to day system administration to project implementaion to random scripts I wrote for practice.
