@@ -1,5 +1,5 @@
 <# This script will compare a system's current PowerShell version
-to any version a sysadmin assigns to $SomeVersion #>
+to any version a sysadmin assigns to $SeekVersion #>
 
 $SeekVersion = [Version]'7.0.0'.ToString()
 
