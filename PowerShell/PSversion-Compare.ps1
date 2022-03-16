@@ -1,27 +1,29 @@
 <# This script will compare a system's current PowerShell version
 to any version a sysadmin assigns to $SomeVersion #>
 
-$SomeVersion = [Version]'9.4.2'
-
-$SomeVersion.GetType()
-
-$SomeVersion.GetType().Name
-
-Write-Output $SomeVersion
+$SeekVersion = [Version]'7.0.0'.ToString()
 
 $CurrentVersion = $PSVersionTable.PSVersion.ToString()
 
-$CurrentVersion.GetType()
+# Utilized the following commands to aid in script development
 
-$CurrentVersion.GetType().Name
+# $SeekVersion.GetType()
 
-Write-Output $CurrentVersion
+# $SeekVersion.GetType().Name
 
-if ($SomeVersion -lt $CurrentVersion)
+# Write-Output $SeekVersion
+
+# $CurrentVersion.GetType()
+
+# $CurrentVersion.GetType().Name
+
+# Write-Output $CurrentVersion
+
+if ($SeekVersion -lt $CurrentVersion)
 {
-    Write-Output "True"
+    Write-Output "The given version, $($SeekVersion), is older than $($env:computername)'s current version, $($CurrentVersion)"
 }
 else
 {
-    Write-Output "Fasle"
+    Write-Output "The given version, $($SeekVersion), is newer than $($env:computername)'s current version, $($CurrentVersion)"
 }
